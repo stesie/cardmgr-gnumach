@@ -1,0 +1,18 @@
+
+ Card Manager for GNU Mach 1.x
+==================================
+
+  The card manager for GNU Mach is derived from the card manager used
+  on GNU/Linux systems.  The original card manager (part of pcmcia-cs
+  package is 
+
+    Copyright (C) 1998, 1999, 2000 David A. Hinds
+
+  and distributed (unless otherwise indicated) under version 1.1
+  of the Mozilla Public License ("MPL").
+
+  However my (Stefan Siegl) additions are subject to the more
+  restrictive GNU General Public License (GPL) Version 2 (or any later
+  on your opinion). 
+
+
