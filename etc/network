@@ -125,7 +125,7 @@ case "$ACTION" in
 
     if [ -n "$IPADDR" ] ; then
 	# Basic network setup
-	NM=${NETMASK:+netmask $NETMASK}
+	NM=${NETMASK}
 	BC=${BROADCAST:+broadcast $BROADCAST}
 	MTU=${MTU:+mtu $MTU}
 	#log /sbin/ifconfig $DEVICE up $IPADDR $NM $BC $MTU
@@ -135,6 +135,7 @@ case "$ACTION" in
 	    #
 	    #/sbin/ifuser $DEVICE $NETWORK || \
 	    #	log /sbin/route add -net $NETWORK $NM dev $DEVICE
+	    /bin/true
 	elif [ -n "$GATEWAY" ] ; then
 	    #/sbin/ifuser $DEVICE $GATEWAY || \
 	    #	log /sbin/route add $GATEWAY $DEVICE
