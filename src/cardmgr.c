@@ -59,6 +59,10 @@
  * http://mdemarco.web.wesleyan.edu/latex/folding.html
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif 
+
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -132,11 +136,7 @@ static int sockets;
 static struct socket_info_t socket[MAX_SOCKS];
 
 /* Default path for config file, device scripts */
-#ifdef ETC
-static char *configpath = ETC;
-#else
-static char *configpath = "/etc/pcmcia";
-#endif
+static char *configpath = PACKAGE_SYSCONFDIR;
 
 /* Default path for pid file */
 static char *pidfile = "/var/run/cardmgr.pid";
@@ -1530,7 +1530,7 @@ int main(int argc, char *argv[])
     while ((optch = getopt(argc, argv, "Vqdvofc:m:p:s:")) != -1) {
 	switch (optch) {
 	case 'V':
-	    fprintf(stderr, "cardmgr version " CS_PKG_RELEASE "\n");
+	    fprintf(stderr, "cardmgr version " PACKAGE_VERSION "\n");
 	    return 0;
 	    break;
 	case 'q':
@@ -1606,7 +1606,7 @@ int main(int argc, char *argv[])
     if (!delay_fork && !one_pass)
 	fork_now();
     openlog("cardmgr", LOG_PID|LOG_CONS, LOG_DAEMON);
-    if (verbose) syslog(LOG_INFO, "starting, version is " CS_PKG_RELEASE);
+    if (verbose) syslog(LOG_INFO, "starting, version is " PACKAGE_VERSION);
 
     /* If we've gotten this far, then clean up pid and stab at exit */
     atexit(&done);

@@ -31,6 +31,10 @@
 
 ======================================================================*/
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif 
+
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,12 +63,7 @@
 
 /*====================================================================*/
 
-#ifdef ETC
-static char *configpath = ETC;
-#else
-static char *configpath = "/etc/pcmcia";
-#endif
-
+static char *configpath = PACKAGE_SYSCONFDIR;
 static char *scheme, *stabfile;
 
 
@@ -701,7 +700,7 @@ int main(int argc, char *argv[])
     while ((optch = getopt(argc, argv, opts)) != -1) {
 	switch (optch) {
 	case 'V':
-	    fprintf(stderr, "cardctl version " CS_PKG_RELEASE "\n");
+	    fprintf(stderr, "cardctl version " PACKAGE_VERSION "\n");
 	    return 0;
 	    break;
 	case 'c':
