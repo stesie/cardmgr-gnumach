@@ -1,0 +1,12 @@
+Makefile
+Makefile.in
+cardmgr-gnumach-*.tar.gz
+INSTALL
+aclocal.m4
+config.h config.h.in config.log config.status
+configure
+depcomp
+install-sh
+*stamp*
+missing
+autom4te.cache
